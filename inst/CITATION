@@ -1,0 +1,16 @@
+
+citEntry(entry="Article",
+         title = "Random marginal agreement coefficients: rethinking the adjustment for chance in agreement coeffients",
+         author = personList(as.person("Michael P. Fay")), 
+         journal      = "Biostatistics",
+         year         = "2005",
+         volume       = "6",
+         number       = "1",  
+         pages        = "171--180",
+         
+         textVersion =
+         paste("Fay, M.P. (2005).", 
+               "Random marginal agreement coefficients: rethinking the adjustment for chance in agreement coeffients",
+               "Biostatistics 6(1), 171--180."),
+         header = "Please cite the rmac package by the following reference:")
+

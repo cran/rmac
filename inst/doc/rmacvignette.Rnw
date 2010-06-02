@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb}
+\newcommand{\BibTeX}{{\sc Bib}\TeX}
+
+% \VignetteIndexEntry{Validation of rmac R package}
+% \VignetteKeyword{Agreement coefficients}
+% \VignetteKeyword{Cohen's kappa}
+
+% define the title
+\author{Jennifer Kirk}
+\title{Validation of the \texttt{rmac} package}
+\begin{document}
+
+% generates the title
+\maketitle
+
+We verfy three functions from the \texttt{rmac} package: \texttt{wkappa}, \texttt{fmacBoot}, and \texttt{rmacBoot} by calculating the fixed and random marginal agreement coefficients in multiple ways.  The \texttt{wkappa} function calculates Cohen's weighted kappa and Scott's Pi, which are the fixed and random marginal agreement coefficients for categorical data.  The \texttt{fmacBoot} and \texttt{rmacBoot} functions use the more computationally intense ideal bootstrap formulas. As these two different methods are equivalent, we compare their outputs for a number of data sets to ensure they are the same.  We also compare the \texttt{fmacBoot} and \texttt{wkappa} to SAS for the fixed marginal agreement coefficient.  We do not validate the \texttt{cac} function, which uses a variety of methods to calculate the fixed and marginal agreement coefficients for continuous data sets, because the are no mathematicallly equivalent methods available for comparison.
+
+To verify the three functions, we choose fourteen data sets, representing a range of agreements.  These data sets are specified as 2x2 proportion matricies of the form $\pi = [ \pi_{11}, \pi_{21}, \pi_{12}, \pi_{22}]$, where $\pi_{ij}$ represents the proportion of observations where measurment $i$ corresponded to measurement $j$. A sample of the data sets is listed in Table \ref{cdist}. 
+{\renewcommand{\arraystretch}{1.25}
+\renewcommand{\tabcolsep}{0.2cm}
+\begin{table}
+\centering
+\begin{tabular}{|l|c|}
+\hline
+ & Proportion Matrix \\
+\hline
+1 & [.7,.1,.1,.1] \\
+\hline
+6 & [.5,.3,.1,.1]  \\
+\hline
+8 & [.6,.1,.2,.1] \\
+\hline
+12 & [.3,.2,.3,.2] \\
+\hline
+14& [.1,.5,.2,.2] \\
+\hline
+\end{tabular}
+\caption{Verification Data Sets in Proportional Matrix Form}
+\label{cdist}
+\end{table}}
+ 
+We randomly sample each of the verification data sets 100 times and calculate the appropriate agreement coefficient for each sample.   Each data set is sampled with sample sizes of 20 and 50 using the function \texttt{rmultinorm}.  For \texttt{wkappa} versus \texttt{rmacBoot}, the difference between estimates was $1 \times 10^{-14}$ or less.  For SAS versus \texttt{wkappa} and \texttt{fmacBoot}, the difference between the estimates was no greater that $1 \times 10^{-8}.$
+\bibliographystyle{plain}
+\bibliography{rmacvignette}
+\nocite{*}
+
+\end{document}
+

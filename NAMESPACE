@@ -1,0 +1,11 @@
+export(cac,wkappa, rmacBoot, fmacBoot)
+
+import(boot)
+
+S3method(wkappa, default)
+S3method(wkappa, table)
+S3method(rmacBoot, default)
+S3method(rmacBoot, table)
+S3method(fmacBoot, default)
+S3method(fmacBoot, table)
+
